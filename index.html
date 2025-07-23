@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arsip Pembelajaran - Sri Dewi Yulia S.Pd</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    :root {
+      --primary: #3182ce;
+      --primary-dark: #2b6cb0;
+      --bg-light: #f9fafc;
+      --text-dark: #2d3748;
+      --text-muted: #718096;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: relative;
+      background: linear-gradient(to right, #4A90E2, #0077B6);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 1rem;
+      overflow: hidden;
+    }
+
+    #particles-js {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+
+    .scroll-btn {
+      background-color: white;
+      color: var(--primary);
+      padding: 0.85rem 1.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .scroll-btn:hover,
+    .scroll-btn:focus {
+      background-color: #e2e8f0;
+      outline: none;
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 3rem 1.5rem;
+      flex-grow: 1;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Desktop: 3 kolom */
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 992px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablet: 2 kolom */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr; /* Mobile: 1 kolom */
+        max-width: 400px;
+      }
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: translateY(40px);
+      opacity: 0;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .card.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .card a {
+      text-align: center;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+      user-select: none;
+    }
+
+    .card a:hover,
+    .card a:focus {
+      background-color: var(--primary-dark);
+      outline: none;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 2rem 1rem;
+      color: var(--text-muted);
+      background-color: #f1f5f9;
+      user-select: none;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Tweaks */
+    @media (max-width: 600px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .section {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div id="particles-js"></div>
+    <div class="hero-content" role="banner">
+      <h1>Arsip Pembelajaran Sri Dewi Yulia S.Pd</h1>
+      <p>Download Arsip Pembelajaran</p>
+      <button id="scrollToArchiveBtn" class="scroll-btn" aria-label="Lihat daftar arsip">Lihat Arsip</button>
+    </div>
+  </header>
+
+  <section id="arsip" class="section" tabindex="-1" aria-label="Daftar Arsip Pembelajaran">
+    <h2>Daftar Arsip</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Promes Kelas 1 Kurikulum Merdeka</h3>
+        <a href="PROMES KLS 1 KURIKULUM MERDEKA 2025-2026.xlsx" download>Download</a>
+      </div>
+      <div class="card">
+        <h3>Prota Kelas 1 Kurikulum Merdeka</h3>
+        <a href="PROTA KLS 1 KURIKULUM MERDEKA 2025-2026.xlsx" download>Download</a>
+      </div>
+      <div class="card">
+        <h3>Teacher Planner (Canva)</h3>
+        <a href="https://www.canva.com/design/DAGtbyzqf7Q/BXFC5hhGNHsU76gRuiFBog/view?mode=preview" target="_blank" rel="noopener noreferrer">Lihat di Canva</a>
+      </div>
+      <div class="card">
+        <h3>Modul Ajar Bahasa Indonesia</h3>
+        <a href="ma_indo.html">Lihat Modul</a>
+      </div>
+      <div class="card">
+        <h3>Modul Ajar Matematika</h3>
+        <a href="ma_mtk.html">Lihat Modul</a>
+      </div>
+      <div class="card">
+        <h3>Modul Ajar PPKN</h3>
+        <a href="ma_ppkn.html">Lihat Modul</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Farhan Maha Putra | Arsip Pembelajaran Sri Dewi Yulia S.Pd
+  </footer>
+
+  <script>
+    // Initialize particles.js with config
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "color": { "value": "#ffffff" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" },
+          "polygon": { "nb_sides": 5 }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": { "enable": false }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": { "enable": false }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 4,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": {
+          "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+
+    const scrollBtn = document.getElementById('scrollToArchiveBtn');
+    const archiveSection = document.getElementById('arsip');
+    const cards = document.querySelectorAll('.card');
+
+    // Scroll to archive section on button click
+    scrollBtn.addEventListener('click', () => {
+      archiveSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Reveal cards with animation on scroll
+    function revealCards() {
+      const triggerPoint = window.innerHeight * 0.85;
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if(cardTop < triggerPoint) {
+          card.classList.add('visible');
+        }
+      });
+    }
+
+    // On page load
+    window.addEventListener('load', () => {
+      revealCards();
+      // Do NOT auto scroll on load anymore (removed)
+      // Restore scroll position, if saved
+      const savedScroll = localStorage.getItem('arsipScrollPos');
+      const scrollY = parseInt(savedScroll);
+      if (!isNaN(scrollY) && scrollY > 0) {
+        window.scrollTo(0, scrollY);
+      }
+    });
+
+    // On scroll
+    window.addEventListener('scroll', () => {
+      revealCards();
+      localStorage.setItem('arsipScrollPos', window.scrollY);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modul Ajar Bahasa Indonesia - Bu Sri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #3182ce;
+      --primary-dark: #2b6cb0;
+      --bg-light: #f9fafc;
+      --text-dark: #2d3748;
+      --text-muted: #718096;
+    }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      color: var(--primary);
+      text-align: center;
+    }
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      font-weight: 600;
+      padding: 0.7rem 1.4rem;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(49,130,206,0.45);
+      transition: background-color 0.3s ease;
+      user-select: none;
+      margin-bottom: 1.5rem;
+    }
+    .btn:hover,
+    .btn:focus {
+      background-color: var(--primary-dark);
+      outline: none;
+    }
+    .btn-back {
+      background-color: #4a5568;
+      margin-right: 1rem;
+    }
+    .btn-download-all {
+      background-color: #16a34a;
+    }
+    .btn-download-all:hover {
+      background-color: #15803d;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.2rem;
+    }
+    .card {
+      background: white;
+      padding: 1.2rem 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: box-shadow 0.3s ease, transform 0.4s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card:hover,
+    .card:focus-within {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.15rem;
+      color: var(--text-dark);
+    }
+    .card a.download-btn {
+      align-self: flex-start;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 7px;
+      font-weight: 600;
+      text-decoration: none;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .card a.download-btn:hover,
+    .card a.download-btn:focus {
+      background-color: var(--primary-dark);
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .cards-container {
+        grid-template-columns: 1fr;
+      }
+      .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      .btn-back {
+        margin-bottom: 0.8rem;
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Modul Ajar Bahasa Indonesia</h1>
+
+  <div>
+    <a href="index.html" class="btn btn-back" id="btnBack" role="button" aria-label="Kembali ke halaman utama">← Kembali</a>
+    <a href="MA B.INDO.zip" class="btn btn-download-all" download aria-label="Download semua file Modul Ajar Bahasa Indonesia dalam format ZIP">Download Semua (ZIP)</a>
+  </div>
+
+  <main class="cards-container" aria-label="Daftar file Modul Ajar Bahasa Indonesia">
+    <article class="card" tabindex="0">
+      <h3>BAB 1 - MA B Indo Kls 1</h3>
+      <a href="MA B.INDO/BAB 1 - MA B Indo Kls 1.docx" class="download-btn" download aria-label="Download BAB 1 Modul Ajar Bahasa Indonesia">Download</a>
+    </article>
+    <article class="card" tabindex="0">
+      <h3>BAB 2 - MA B Indo Kls 1</h3>
+      <a href="MA B.INDO/BAB 2 - MA B Indo Kls 1.docx" class="download-btn" download aria-label="Download BAB 2 Modul Ajar Bahasa Indonesia">Download</a>
+    </article>
+    <article class="card" tabindex="0">
+      <h3>BAB 3 - MA B Indo Kls 1</h3>
+      <a href="MA B.INDO/BAB 3 - MA B Indo Kls 1.docx" class="download-btn" download aria-label="Download BAB 3 Modul Ajar Bahasa Indonesia">Download</a>
+    </article>
+    <article class="card" tabindex="0">
+      <h3>BAB 4 - MA B Indo Kls 1</h3>
+      <a href="MA B.INDO/BAB 4 - MA B Indo Kls 1.docx" class="download-btn" download aria-label="Download BAB 4 Modul Ajar Bahasa Indonesia">Download</a>
+    </article>
+  </main>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+
+    function revealCards() {
+      const triggerBottom = window.innerHeight * 0.85;
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < triggerBottom) {
+          card.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealCards);
+    window.addEventListener('load', revealCards);
+
+    // Save scroll position on this page
+    window.addEventListener('scroll', () => {
+      localStorage.setItem('maIndoScroll', window.scrollY);
+    });
+
+    // Restore scroll position on load
+    window.addEventListener('load', () => {
+      const savedScroll = localStorage.getItem('maIndoScroll');
+      if (savedScroll) {
+        window.scrollTo(0, parseInt(savedScroll));
+      }
+    });
+  </script>
+</body>
+</html>
